@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import '../styles/Typeahead.css'
 
-function Typeahead(props){
+let Typeahead = () =>{
     const [stores, setStores] = useState([]);
     const [input, setInput] = useState("");
 
@@ -16,13 +16,13 @@ function Typeahead(props){
                 break
             default:
                 let url = 'http://localhost/backend/stores?search=' + userInput;
-                let response = await fetch(url).then(r => r.json()).then(r => setStores(r.stores));
-                console.log(stores);
+                let response = await fetch(url).then(r => r.json());
+                setStores(response.stores)
         }    
     }
 
     return(
-        <div style={{padding: '10px'}}>
+        <div className="wrapper">
             <input 
                 type="text"
                 onChange={handleChange}

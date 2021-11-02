@@ -36,3 +36,7 @@ pre {
     font-size: 10px;
     font-weight: bold;
 }
+
+.wrapper {
+    padding: 10px;
+}
